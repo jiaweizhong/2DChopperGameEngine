@@ -1,0 +1,42 @@
+# Install the SDL2 via package manager
+sudo apt-get install libsdl2-2.0
+sudo apt-get install libsdl2-dev
+
+# Assume in Eclipse env
+# Naviaget to project properties -> gcc/g++ Linker -> Libraries
+# Add SDL2 as Libaries
+
+# Include the header file in cpp file
+#include <SDL2/SDL.h>
+
+# Test SDL2 lib
+#include <iostream>
+#include <SDL2/SDL.h>
+using namespace std;
+
+int main() {
+
+	if(SDL_Init(SDL_INIT_VIDEO)<0){
+		cout << "SDL initialization failed!" << endl;
+		return 1;
+	}
+
+	cout << "SDL initialization succeeded!" << endl;
+	SDL_Quit();
+
+	return 0;
+}
+
+# Work with JPEG, png etc. images
+sudo apt-get install libsdl2-image-dev
+# Work with fonts
+sudo apt-get install libsdl2-ttf-dev
+# Work with music
+sudo apt-get install libsdl2-mixer-dev
+# Work with lua
+sudo apt-get install lua5.3
+
+# Compile and run the program
+make run
+
+
