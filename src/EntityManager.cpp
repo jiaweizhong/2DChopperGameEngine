@@ -20,29 +20,17 @@ void EntityManager::Render(){
     }
 }
 
-bool EntityManager::HasNoEntities(){
+bool EntityManager::HasNoEntities() const{
     return entities.size() == 0;
-}
-
-Entity& EntityManager::AddEntity(string entityName){
-    // pass this to owner pointer
-    Entity *entity = new Entity(*this, entityName);
-    entities.emplace_back(entity);
-    // return pointer to the new created entity
-    return *entity;
 }
 
 vector<Entity*> EntityManager::GetEntities()const{
     return entities;
 }
 
-unsigned int EntityManager::GetEntityCount(){
+unsigned int EntityManager::GetEntityCount() const{
 
     return entities.size();
-}
-
-vector<Entity*> EntityManager::GetEntities() const {
-    return entities;
 }
 
 void EntityManager::ListAllEntities() const {
@@ -54,8 +42,10 @@ void EntityManager::ListAllEntities() const {
     }
 }
 
-Entity& EntityManager::AddEntity(std::string entityName) {
+Entity& EntityManager::AddEntity(string entityName){
+    // pass this to owner pointer
     Entity *entity = new Entity(*this, entityName);
     entities.emplace_back(entity);
+    // return pointer to the new created entity
     return *entity;
 }

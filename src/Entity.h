@@ -35,14 +35,14 @@ public:
 
 
     template <typename T, typename... TArgs>
-    T& addComponent(TArgs&&... args){
+    T& AddComponent(TArgs&&... args){
         T* newComponent(new T(forward<TArgs>(args)...));
         // component owner is current entity
         newComponent->owner = this;
         // add components
         components.emplace_back(newComponent);
-        // add to component-type map
-        componentTypeMap[&typeid(newComponent)] = newComponent;
+        // add to component-type map (deref newComponent)
+        componentTypeMap[&typeid(*newComponent)] = newComponent;
         newComponent->Init();
         return *newComponent;
     }

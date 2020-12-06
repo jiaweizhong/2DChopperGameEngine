@@ -17,12 +17,12 @@ class Game {
         SDL_Window *m_window;
 
     public:
-        int lastFrameTime;
+        int lastFrameTime = 0;
         // static renderer
         static SDL_Renderer *m_renderer;
         static AssetManager* assetManager;
         Game();
-        virtual ~Game();
+        ~Game();
         void LoadLevel(int levelNumber);
         // check running status
         bool isRunning() const;

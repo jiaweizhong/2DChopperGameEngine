@@ -26,6 +26,7 @@ bool Game::isRunning() const {
 void Game::Init(int width, int height){
     if(SDL_Init(SDL_INIT_EVERYTHING)!=0){
         cerr << "Error initializing SDL" << endl;
+        return;
     }
 
     // init window pointer
@@ -59,13 +60,18 @@ void Game::Init(int width, int height){
 void Game::LoadLevel(int level){
 
     // start including new assets to the asset manager list
-    string textureFilePath = "./assets/images/tank-big-right.png";
-    assetManager->AddTexture("tank-image", textureFilePath.c_str());
-
+    // string textureFilePath = "./assets/images/tank-big-right.png";
+    assetManager->AddTexture("tank-image", string("./assets/images/tank-big-right.png").c_str());
+    assetManager->AddTexture("chopper-image", string("./assets/images/chopper-spritesheet.png").c_str());
+    
     // start including entities and add components to them
-    Entity& newEntity(manager.AddEntity("tank"));
-    newEntity.addComponent<TransformComponent>(0, 0, 20, 20, 32, 32, 1);
-    newEntity.addComponent<SpriteComponent>("tank-image");
+    Entity& tankEntity(manager.AddEntity("tank"));
+    tankEntity.AddComponent<TransformComponent>(0, 0, 20, 20, 32, 32, 1);
+    tankEntity.AddComponent<SpriteComponent>("tank-image");
+
+    Entity& chopperntity(manager.AddEntity("chopper"));
+    chopperntity.AddComponent<TransformComponent>(240, 106, 0, 0, 32, 32, 1);
+    chopperntity.AddComponent<SpriteComponent>("chopper-image", 2, 90, true, false);
 
 }
 
@@ -85,8 +91,9 @@ void Game::ProcessInput(){
             }
         }
         
-        default:
+        default:{
             break;
+        }
     }
 }
 

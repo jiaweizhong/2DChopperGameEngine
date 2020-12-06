@@ -1,4 +1,9 @@
 #include "AssetManager.h"
+#include "./Components/TransformComponent.h"
+
+AssetManager::AssetManager(EntityManager* manager): manager(manager) {
+
+}
 
 void AssetManager::ClearData(){
     textures.clear();

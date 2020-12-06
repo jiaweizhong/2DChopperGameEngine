@@ -10,7 +10,7 @@ private:
     EntityManager* manager;
     map<string, SDL_Texture*> textures;
 public:
-    AssetManager(EntityManager* manager):manager(manager){};
+    AssetManager(EntityManager* manager);
     ~AssetManager(){};
     void ClearData();
     void AddTexture(string textureID, const char* filePath);

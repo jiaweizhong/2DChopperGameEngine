@@ -14,11 +14,11 @@ public:
     void ClearData(); // clear all entities
     void Update(float deltaTime);
     void Render();
-    bool HasNoEntities();
-    Entity& AddEntity(string entityName);
+    bool HasNoEntities() const;
+    unsigned int GetEntityCount() const;
     vector<Entity*> GetEntities() const;
     void ListAllEntities() const;
-    unsigned int GetEntityCount();
+    Entity& AddEntity(string entityName);
     virtual ~EntityManager(){};
 };
 
