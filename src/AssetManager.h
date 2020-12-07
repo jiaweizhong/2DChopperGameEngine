@@ -1,5 +1,5 @@
-#ifndef ASSETMANAGER_
-#define ASSETMANAGER_
+#ifndef ASSETMANAGER_H
+#define ASSETMANAGER_H
 #include <map>
 #include <string>
 #include "EntityManager.h"

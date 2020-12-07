@@ -21,6 +21,7 @@ class Game {
         // static renderer
         static SDL_Renderer *m_renderer;
         static AssetManager* assetManager;
+        static SDL_Event m_event;
         Game();
         ~Game();
         void LoadLevel(int levelNumber);

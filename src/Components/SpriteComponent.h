@@ -27,14 +27,20 @@ private:
 public:
     SDL_RendererFlip flip = SDL_FLIP_NONE;
     SpriteComponent(string assetTextureID){
-        isAnimated = false;
-        isFixed = false;
+        this->isAnimated = false;
+        this->isFixed = false;
         SetTexture(assetTextureID);
     }
+    SpriteComponent(std::string assetTextureId, bool isFixed) {
+            this->isAnimated = false;
+            this->isFixed = isFixed;
+            SetTexture(assetTextureId);
+        }
     SpriteComponent(string assetTextureID, int numFrames, int animationSpeed, bool hasDirections, bool isFixed){
         this->numFrames = numFrames;
         this->animationSpeed = animationSpeed;
-        this->isAnimated = isAnimated;
+        // default with hasDirections
+        this->isAnimated = true;
         this->isFixed = isFixed;
         if(hasDirections){
             // create 4 direction animations

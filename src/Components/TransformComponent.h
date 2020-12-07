@@ -6,6 +6,8 @@
 #include <SDL2/SDL.h>
 #include "../Game.h"
 
+
+// class to describe the sprite transform
 class TransformComponent:public Component
 {
 private:
