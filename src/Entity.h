@@ -6,6 +6,7 @@
 #include <map>
 #include "EntityManager.h"
 #include "Component.h"
+#include "Constants.h"
 #include <typeinfo>
 
 class EntityManager;
@@ -23,8 +24,9 @@ private:
 
 public:
     string name;
+    LayerType layer;
     Entity(EntityManager& manager);
-    Entity(EntityManager& manager, string name);
+    Entity(EntityManager& manager, string name, LayerType layer);
     virtual ~Entity(){};
     
     void Update(float deltaTime);

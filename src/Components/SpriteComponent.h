@@ -97,8 +97,9 @@ public:
         }
         sourceRect.y = animationIndex * transform -> height;
 
-        targetRect.x = static_cast<int>(transform->position.x);
-        targetRect.y = static_cast<int>(transform->position.y);
+        // update with camera view - pay attention to the fixed sprite
+        targetRect.x = static_cast<int>(transform->position.x) - (isFixed? 0 : Game::camera.x);
+        targetRect.y = static_cast<int>(transform->position.y) - (isFixed? 0 : Game::camera.y);
         targetRect.w = transform->width * transform->scale;
         targetRect.h = transform->height * transform->scale;
 

@@ -50,25 +50,26 @@ public:
 
     void Update(float deltaTime)override{
         // key press
+        int step = 30;
         if(Game::m_event.type == SDL_KEYDOWN){
             string keyCode = to_string(Game::m_event.key.keysym.sym);
             if(keyCode.compare(upKey) == 0){
                 tranform->velocity.x = 0;
-                tranform->velocity.y = -10;
+                tranform->velocity.y = -step;
                 sprite->Play("UpAnimation");
             }
             if(keyCode.compare(rightKey) == 0){
-                tranform->velocity.x = 10;
+                tranform->velocity.x = step;
                 tranform->velocity.y = 0;
                 sprite->Play("RightAnimation");
             }
             if(keyCode.compare(downKey) == 0){
                 tranform->velocity.x = 0;
-                tranform->velocity.y = 10;
+                tranform->velocity.y = step;
                 sprite->Play("DownAnimation");
             }
             if(keyCode.compare(leftKey) == 0){
-                tranform->velocity.x = -10;
+                tranform->velocity.x = -step;
                 tranform->velocity.y = 0;
                 sprite->Play("LeftAnimation");
             }

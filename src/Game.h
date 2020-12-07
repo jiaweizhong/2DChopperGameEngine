@@ -22,6 +22,7 @@ class Game {
         static SDL_Renderer *m_renderer;
         static AssetManager* assetManager;
         static SDL_Event m_event;
+        static SDL_Rect camera;  // camera of viewer
         Game();
         ~Game();
         void LoadLevel(int levelNumber);
@@ -36,6 +37,7 @@ class Game {
         // render the window
         void Render();
         void Destroy();
+        void HandleCameraMove();
 
 
 };
