@@ -21,6 +21,7 @@ public:
     vector<Entity*> GetEntitiesByLayer(LayerType layer) const;
     void ListAllEntities() const;
     Entity& AddEntity(string entityName, LayerType layer);
+    CollisionType CheckEntityCollision() const;
     virtual ~EntityManager(){};
 };
 
