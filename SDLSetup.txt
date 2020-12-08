@@ -36,7 +36,12 @@ sudo apt-get install libsdl2-mixer-dev
 # Work with lua
 sudo apt-get install lua5.3
 
+# Compile in terminal
+make
+
 # Compile and run the program
 make run
 
+# Clean
+make clean
 

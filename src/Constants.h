@@ -1,6 +1,8 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+#include <SDL2/SDL.h>
+
 const unsigned int WINDOW_WIDTH  = 800;
 const unsigned int WINDOW_HEIGHT = 600;
 const unsigned int FPS = 60;
@@ -29,6 +31,13 @@ enum CollisionType {
   PLAYER_VEGETATION_COLLISION,
   PLAYER_LEVEL_COMPLETE_COLLISION
 };
+
+const SDL_Color WHITE_COLOR = {255, 255, 255, 255};
+const SDL_Color GREEN_COLOR = {0, 255, 0, 255};
+const SDL_Color RED_COLOR = {255, 0, 0, 255};
+const SDL_Color BLUE_COLOR = {0, 0, 255, 255};
+
+
 
 
 #endif
