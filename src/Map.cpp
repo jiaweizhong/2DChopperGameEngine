@@ -23,6 +23,8 @@ void Map::LoadMap(string filePath, int mapSizeX, int mapSizeY){
     // sanity check
     if(mapFile.fail()){
         cerr << "Map file loading failed" << endl;
+    }else{
+        cout<< "Map is loaded successfully" << endl;   
     }
 
     for(int y = 0; y < mapSizeY; y++){

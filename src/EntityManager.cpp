@@ -14,6 +14,17 @@ void EntityManager::Update(float deltaTime){
     for(auto& entity:entities){
         entity->Update(deltaTime);
     }
+    // inactive entities e.g. projectile
+    DestroyInactiveEntities();
+}
+
+void EntityManager::DestroyInactiveEntities(){
+    for(int i = 0; i < entities.size(); i++){
+        if(!entities[i]->isActive()){
+            // erase the entity from the list - begin() return first address of list
+            entities.erase(entities.begin() + i);
+        }
+    }
 }
 
 void EntityManager::Render(){
@@ -41,6 +52,15 @@ vector<Entity*> EntityManager::GetEntitiesByLayer(LayerType layer)const{
         }
     }
     return selectedEntities;
+}
+
+Entity* EntityManager::GetEntityByName(string entityName) const {
+    for (auto* entity: entities) {
+        if (entity->name.compare(entityName) == 0) {
+            return entity;
+        }
+    }
+    return NULL;
 }
 
 unsigned int EntityManager::GetEntityCount() const{
@@ -78,13 +98,13 @@ CollisionType EntityManager::CheckEntityCollision() const {
                         }
                         // 2. player - projecttile
                         if(thisCollider->colliderTag.compare("PLAYER") == 0 &&
-                           thatCollider->colliderTag.compare("PROJECTTILE") == 0){
-                               return PLAYER_PROJECTTILE_COLLISION;
+                           thatCollider->colliderTag.compare("PROJECTILE") == 0){
+                               return PLAYER_PROJECTILE_COLLISION;
                         }
                         // 3. enemy - friend projecttile
                         if(thisCollider->colliderTag.compare("ENEMY") == 0 &&
-                           thatCollider->colliderTag.compare("FRIENDLY_PROJECTTILE") == 0){
-                               return ENEMY_PROJECTTILE_COLLISION;
+                           thatCollider->colliderTag.compare("FRIENDLY_PROJECTILE") == 0){
+                               return ENEMY_PROJECTILE_COLLISION;
                         }
                         // 4. player - level complete
                         if(thisCollider->colliderTag.compare("PLAYER") == 0 &&

@@ -19,9 +19,11 @@ public:
     unsigned int GetEntityCount() const;
     vector<Entity*> GetEntities() const;
     vector<Entity*> GetEntitiesByLayer(LayerType layer) const;
+    Entity* GetEntityByName(string entityName) const;
     void ListAllEntities() const;
     Entity& AddEntity(string entityName, LayerType layer);
     CollisionType CheckEntityCollision() const;
+    void DestroyInactiveEntities();
     virtual ~EntityManager(){};
 };
 
